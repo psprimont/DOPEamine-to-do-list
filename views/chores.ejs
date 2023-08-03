@@ -1,0 +1,42 @@
+<%- include("partials/header") %>
+
+    <h1>What would you like to do today?</h1>
+
+    <div class="alignment-box">
+
+        <div class="all-lists">
+            <nav>
+                <ul>
+                    <a href="/">Main</a>
+                    <a href="/work">Work</a>
+                    <a href="/chores">Chores</a>
+                </ul>
+            </nav>
+
+            <div class="list-chores">
+                <% toDoItemsChores.forEach(item => { %>
+                    <div class="list-items">
+                        <input type="checkbox" name="<%= item %>" autocomplete="on">
+                        <label for="<%= item %>">
+                            <%= item %>
+                        </label>
+                        <hr>
+                    </div>
+    
+                    <% }); %>
+    
+                        <div class="new-item-form">
+                            <form action="/" method="post">
+                                <input type="text" placeholder="Today I would like to..." name="toDoItem">
+                                <button type="submit" name="submit" value="Add Item">Add Item</button>
+                            </form>
+                        </div>
+    
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <%- include("partials/footer") %>

@@ -1,0 +1,87 @@
+html {
+    background: radial-gradient(#ec7263, #a75265);
+
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lumanosimo', cursive;
+}
+
+input[type='text'] {
+    border-radius: 5%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    outline-color: dimgrey;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 0 1px 1px #57385c85;
+}
+
+input:checked+label {
+    text-decoration: line-through;
+    text-decoration-color: #57385cce;
+}
+
+button[type='submit'] {
+    border-radius: 5%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+}
+
+button[type="submit"]:hover {
+    outline: none;
+    box-shadow: inset 0 0 1px 1px #57385c85;
+}
+
+footer {
+    align-self: end;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.alignment-box {
+    display: flex;
+    margin: 2% 5% 40% 5%;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.list-main {
+    background-color: blanchedalmond;
+    border: 12px #57385c;
+    border-style: ridge groove;
+    width: 70%;
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+}
+
+.list-work {
+    background-color: rgb(251, 204, 189);
+    border: 12px #57385c;
+    border-style: ridge groove;
+    width: 70%;
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+}
+
+.list-chores {
+    background-color: rgb(251, 196, 196);
+    border: 12px #57385c;
+    border-style: ridge groove;
+    width: 70%;
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+}
+
+.new-item-form {
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+}
