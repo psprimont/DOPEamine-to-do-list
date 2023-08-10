@@ -19,10 +19,13 @@
             <% let n=0 %>
             <% toDoItems.forEach(item=> { %>
                 <div class="list-items">
-                    <input type="checkbox" name="<%= item %>" id="myCheckbox<%= item %>" <%= checkStatus[n] %> >
-                    <label for="<%= item %>">
-                        <%= item %>
-                    </label>
+                    <form action="/check" method="post">
+                        <input onChange="this.form.submit()" type="checkbox" name="doThis" id="<%= item %>" value="<%= n %>" <%= checkStatus[n] %> >
+                        <input type="hidden" name="toDoIndex" value="<%= n %>">
+                        <label for="<%= item %>">
+                            <%= item %>
+                        </label>
+                    </form>
                     <hr>
                 </div>
                 <% n++ %>
@@ -41,53 +44,49 @@
 
     </div>
 
-    <script>
-
-        $("[id^='myCheckbox']").on("change",(function () {
-            const checkbox = $(this);
-            console.log(checkbox);
-        }))
-
-    </script>
 
 
     <%- include("partials/footer") %>
 
 
 
+<!-- 
+    CURRENT BUGS/PROJECTS 
 
-
-        <!-- dynamic, stylized clock that reads out the current time. -->
-
-        <!-- 
-sub to-do list categories (work, home, etc) -- accessed via tabs above the main list
-a primary to-do list that includes everything from each category?
-dropdown menu by the to-do adding form that allows you to select which list the to-do item goes to
-
-checkboxes
-move items down to the bottom of the list when they get crossed out? <-- maybe use app.put or app.patch for this
-
-once you cross off all items for the day, you get to "roll the dice" or "spin the wheel" for a chance at getting a token
-
-"Reset" button to clearall items and start a new day
-
-ability to delete items
+    1. checked off items delete on new form submission or page reload
+    Potential solutions:
+        a. sessionStorage or localStorage  
+        b. XMLHttpRequest 
+        c. make each checkbox a form 
+        d. use plain JS to change checked attribute (not sure if this persists through page relaods)
 
 -->
 
-        <!-- MAYBE EVENTUALLY
-ability to create a daily (time-stamped) schedule
 
-reminders
+<!-- 
+    Ideas:
+    1. a primary to-do list that includes everything from each category?
+    2. dropdown menu by the to-do adding form that allows you to select which list the to-do item goes to?
+    3. move items down to the bottom of the list when they get crossed out? <- maybe use app.put or app.patch for this
+    4. once you cross off all items for the day, you get to "roll the dice" or "spin the wheel" for a chance at getting an indulgence token
+    5. "Reset" button to clearall items and start a new day
+    6. ability to delete items
+    7. dynamic, stylized clock that reads out the current time. (is there an API for this?)
+-->
 
-timer function 
-
-ability to have daily tasks that autoload to your to-do list << will require use of database
+<!-- 
+    MAYBE EVENTUALLY
+    1. ability to create a daily (time-stamped) schedule
+    2. reminders
+    3. timer function 
+    4. ability to have daily tasks that autoload to your to-do list << will require use of database
  -->
 
-        <!-- QUOTES/CONTENT
-This to-do list works with you, not for you. As the saying goes, you get out what you put in. So, be honest with yourself, be kind to yourself, and when you've done what you set out to do, don't be afraid to occasionally treat yo' self.
+<!-- 
+    QUOTES/CONTENT
 
-It's worth noting that the intention of the Treat Yo'Self Token is to enhance your motivation and focus both in the moment and big-picture, not to snuff out your motivation or diminish your focus. So while some of the features (random chance, cookie crumbs) and mechanisms (reward pathways and dopamine) may be shared with, say, a slot machine, I prefer to think of it in an evolutionary sense (albeit very simplified). The fruits of your labor are satisfyingly sweet because they nourish you. Put another way, it is my hope that you distinguish between a Treat Yo'Self Treat that enriches your life while considering the inevitability of consequences rather than a blowout night of drinking that leaves you bedridden 12 hours the next day. 
+    This to-do list works with you, not for you. As the saying goes, you get out what you put in. So, be honest with yourself, be kind to yourself, and when you've done what you set out to do, don't be afraid to occasionally treat yo' self.
+
+    It's worth noting that the intention of the Treat Yo'Self Token is to enhance your motivation and focus both in the moment and big-picture, not to snuff out your motivation or diminish your focus. So while some of the features (random chance, cookie crumbs) and mechanisms (reward pathways and dopamine) may be shared with, say, a slot machine, I prefer to think of it in an evolutionary sense (albeit very simplified). The fruits of your labor are satisfyingly sweet because they nourish you. Put another way, it is my hope that you distinguish between a Treat Yo'Self Treat that enriches your life while considering the inevitability of consequences rather than a blowout night of drinking that leaves you bedridden 12 hours the next day. 
 
 -->

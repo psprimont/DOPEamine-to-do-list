@@ -9,11 +9,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 
-const toDoItemsMain = ["main1", "main2", "main3"];
+const toDoItemsMain = [];
 const toDoItemsWork = ["work1", "work2", "work3"];
 const toDoItemsChores = ["chores1", "chores2", "chores3"];
-const checkStatusMain = ["unchecked", "unchecked", "checked"];
-const checkStatusWork = ["unchecked", "checked", "checked"];
+const checkStatusMain = [];
+const checkStatusWork = ["unchecked", "unchecked", "unchecked"];
 const checkStatusChores = ["checked", "unchecked", "unchecked"];
 const todaysDate = getDate();
 
@@ -42,8 +42,20 @@ app.post("/", (req, res) => {
   } else {
     toDoItemsMain.push(req.body.toDoItem);
     checkStatusMain.push("unchecked");
+    console.log(checkStatusMain);
     res.redirect("/");
   }
+});
+
+app.post("/check", (req, res) => {
+    let index = Number(req.body.toDoIndex);
+    console.log(index);
+    if (checkStatusMain[index] === "unchecked") {
+        checkStatusMain[index] = "checked";
+    } else {
+        checkStatusMain[index] = "unchecked";
+    }
+    res.redirect("/");
 });
 
 app.get("/about", (req, res) => {
