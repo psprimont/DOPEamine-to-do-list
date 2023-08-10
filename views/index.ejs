@@ -4,39 +4,51 @@
 
     <div class="alignment-box">
 
-        <div class="all-lists">
+        <div>
             <nav>
-                <ul>
-                    <a href="/">Main</a>
-                    <a href="/work">Work</a>
-                    <a href="/chores">Chores</a>
+                <ul class="list-menu">
+                    <a class="tab-main" href="/">Main</a>
+                    <a class="tab-work" href="/work">Work</a>
+                    <a class="tab-chores" href="/chores">Chores</a>
                 </ul>
             </nav>
+        </div>
 
-            <div class="list-main">
-                <% toDoItemsMain.forEach(item => { %>
-                    <div class="list-items">
-                        <input type="checkbox" name="<%= item %>" autocomplete="on">
-                        <label for="<%= item %>">
-                            <%= item %>
-                        </label>
-                        <hr>
+        <div class="<%= listTitle %>">
+            <div class ="todays-date"> <h2> <%= date %> </h2> </div>
+            <% let n=0 %>
+            <% toDoItems.forEach(item=> { %>
+                <div class="list-items">
+                    <input type="checkbox" name="<%= item %>" id="myCheckbox<%= item %>" <%= checkStatus[n] %> >
+                    <label for="<%= item %>">
+                        <%= item %>
+                    </label>
+                    <hr>
+                </div>
+                <% n++ %>
+                <% }); %>
+
+                    <div class="new-item-form">
+                        <form action="/" method="post">
+                            <input type="text" placeholder="Today I would like to..." name="toDoItem" required autofocus>
+                            <button type="submit" name="list" value="<%= listTitle %>">Add Item</button>
+                        </form>
                     </div>
-    
-                    <% }); %>
-    
-                        <div class="new-item-form">
-                            <form action="/" method="post">
-                                <input type="text" placeholder="Today I would like to..." name="toDoItem">
-                                <button type="submit" name="submit" value="Add Item">Add Item</button>
-                            </form>
-                        </div>
-    
-            </div>
 
         </div>
 
+
+
     </div>
+
+    <script>
+
+        $("[id^='myCheckbox']").on("change",(function () {
+            const checkbox = $(this);
+            console.log(checkbox);
+        }))
+
+    </script>
 
 
     <%- include("partials/footer") %>
@@ -57,11 +69,20 @@ move items down to the bottom of the list when they get crossed out? <-- maybe u
 
 once you cross off all items for the day, you get to "roll the dice" or "spin the wheel" for a chance at getting a token
 
+"Reset" button to clearall items and start a new day
+
+ability to delete items
+
 -->
 
         <!-- MAYBE EVENTUALLY
 ability to create a daily (time-stamped) schedule
+
 reminders
+
+timer function 
+
+ability to have daily tasks that autoload to your to-do list << will require use of database
  -->
 
         <!-- QUOTES/CONTENT

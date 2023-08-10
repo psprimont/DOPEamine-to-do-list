@@ -1,11 +1,43 @@
 html {
-    background: radial-gradient(#ec7263, #a75265);
-
+    background: radial-gradient(#dcb42dc1, #62a12fd3);
+    background-image: url("/images/tabletop.jpg");
+    background-size: cover;
 }
 
 h1 {
     text-align: center;
     font-family: 'Lumanosimo', cursive;
+    color: rgb(224, 252, 252);
+    text-shadow: 1px 1px 10px rgb(220, 180, 0), .5px .5px 3px rgb(63, 52, 0);
+    font-size: 40px;
+}
+
+h2 {
+    color: #57385cdf;
+    text-shadow: .5px .5px 1px goldenrod;
+}
+
+a {
+    padding: 4px 7px 9px;
+    margin-bottom: -2px;
+    border: solid;
+    border-bottom-width: 0;
+    border-width: 1px;
+    border-radius: 35% 35% 0 0;
+    border-color: #57385c;
+    font-size: 1.3rem;
+    box-shadow: 0px -1px 5px 0px rgba(68, 68, 68, 0.594);
+    text-decoration-line: none;
+    font-synthesis: weight;
+    font-weight: 900;
+    color: black;
+    position:relative;
+    z-index: 2;
+}
+
+a:hover {
+    margin-top: -1px;
+    transform: translate(0, -1px);
 }
 
 input[type='text'] {
@@ -17,18 +49,24 @@ input[type='text'] {
 
 input[type="text"]:focus {
     outline: none;
-    box-shadow: inset 0 0 1px 1px #57385c85;
+    box-shadow: inset 0 0 1px 1px #7d2f4185;
 }
 
 input:checked+label {
-    text-decoration: line-through;
-    text-decoration-color: #57385cce;
+    text-decoration: line-through 2px;
+    text-decoration-color: #483d4a96;
+    color: transparent;
+    text-shadow: 0 0 1.5px #483d4ad8;
 }
 
 button[type='submit'] {
-    border-radius: 5%;
+    border-radius: 7.5%;
     font-family: 'Space Grotesk', sans-serif;
     font-size: large;
+    height: 30px;
+    min-width: 120px;
+    background-color: #57385c;
+    color: blanchedalmond;
 }
 
 button[type="submit"]:hover {
@@ -39,49 +77,112 @@ button[type="submit"]:hover {
 footer {
     align-self: end;
     font-family: 'Space Grotesk', sans-serif;
+    text-shadow: .5px .5px 1px rgb(220, 180, 0), .25px .25px .5px rgb(63, 52, 0);
 }
 
+input[type="text"] {
+    text-align: center;
+    height: 30px;
+    font-size: large;
+    font-weight: 200;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
 .alignment-box {
-    display: flex;
-    margin: 2% 5% 40% 5%;
-    justify-content: center;
+    display: block;
+    margin: 6% 5% 20% 5%;
     background-color: transparent;
+    position: relative;
+    min-height: 100vh;
+}
+
+.list-menu {
+    width: 70%;
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-main {
+    background-color: blanchedalmond;
+}
+
+.tab-work {
+    background-color: rgb(244, 230, 175);
+}
+
+.tab-chores {
+    background-color: rgb(220, 230, 200);
+}
+
+.todays-date {
+    margin-top: -15px;
+    text-align: center;
 }
 
 .list-main {
+    justify-content: center;
     background-color: blanchedalmond;
-    border: 12px #57385c;
+    border: 6px #57385c;
     border-style: ridge groove;
     width: 70%;
+    max-width: 650px;
     padding: 20px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: large;
-    box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+    box-shadow: 0px 0px 20px -2px rgba(219, 219, 219, 0.594), 0 0 3px 1px rgba(34, 34, 34, 0.723);
+    margin: auto;
+    margin-top: -3px;
+    position: relative;
+    z-index: 3;
+    border-radius: 1%;
 }
 
 .list-work {
-    background-color: rgb(251, 204, 189);
-    border: 12px #57385c;
+    background-color: rgb(244, 230, 175);
+    justify-content: center;
+    border: 6px #57385c;
     border-style: ridge groove;
     width: 70%;
+    max-width: 650px;
     padding: 20px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: large;
     box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+    margin: auto;
+    margin-top: -3px;
+    position: relative;
+    z-index: 3;
+    border-radius: 1%;
 }
 
 .list-chores {
-    background-color: rgb(251, 196, 196);
-    border: 12px #57385c;
+    background-color: rgb(220, 230, 200);
+    justify-content: center;
+    border: 6px #57385c;
     border-style: ridge groove;
     width: 70%;
+    max-width: 650px;
     padding: 20px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: large;
     box-shadow: 0px 0px 25px -5px rgba(219, 219, 219, 0.594);
+    margin: auto;
+    margin-top: -3px;
+    position: relative;
+    z-index: 3;
+    border-radius: 1%;
 }
 
 .new-item-form {
     padding: 20px;
     font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    justify-content: center;
 }
