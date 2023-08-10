@@ -10,11 +10,11 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 const toDoItemsMain = [];
-const toDoItemsWork = ["work1", "work2", "work3"];
-const toDoItemsChores = ["chores1", "chores2", "chores3"];
+const toDoItemsWork = [];
+const toDoItemsChores = [];
 const checkStatusMain = [];
-const checkStatusWork = ["unchecked", "unchecked", "unchecked"];
-const checkStatusChores = ["checked", "unchecked", "unchecked"];
+const checkStatusWork = [];
+const checkStatusChores = [];
 const todaysDate = getDate();
 
 app.get("/", (req, res) => {
@@ -30,6 +30,7 @@ app.get("/chores", (req, res) => {
   res.render("index", { toDoItems: toDoItemsChores, checkStatus: checkStatusChores, date: todaysDate, listTitle: "list-chores" });
 });
 
+//add new to-do items to corresponding array; add default unchecked status to corresponding array
 app.post("/", (req, res) => {
   if (req.body.list === "list-work") {
     toDoItemsWork.push(req.body.toDoItem);
@@ -42,20 +43,48 @@ app.post("/", (req, res) => {
   } else {
     toDoItemsMain.push(req.body.toDoItem);
     checkStatusMain.push("unchecked");
-    console.log(checkStatusMain);
     res.redirect("/");
   }
 });
 
+//
 app.post("/check", (req, res) => {
-    let index = Number(req.body.toDoIndex);
-    console.log(index);
-    if (checkStatusMain[index] === "unchecked") {
-        checkStatusMain[index] = "checked";
-    } else {
-        checkStatusMain[index] = "unchecked";
-    }
-    res.redirect("/");
+
+    if (req.body.toDoList === "list-work") {
+        let index = Number(req.body.toDoIndex);
+        if (checkStatusWork[index] === "unchecked") {
+            checkStatusWork[index] = "checked";
+        } else {
+            checkStatusWork[index] = "unchecked";
+        }
+        res.redirect("/work");
+      } else if (req.body.toDoList === "list-chores") {
+        let index = Number(req.body.toDoIndex);
+        if (checkStatusChores[index] === "unchecked") {
+            checkStatusChores[index] = "checked";
+        } else {
+            checkStatusChores[index] = "unchecked";
+        }
+        res.redirect("/chores");
+      } else {
+        let index = Number(req.body.toDoIndex);
+        if (checkStatusMain[index] === "unchecked") {
+            checkStatusMain[index] = "checked";
+        } else {
+            checkStatusMain[index] = "unchecked";
+        }
+        res.redirect("/");
+      }
+
+    // let index = Number(req.body.toDoIndex);
+    // console.log(index);
+    // if (checkStatusMain[index] === "unchecked") {
+    //     checkStatusMain[index] = "checked";
+    // } else {
+    //     checkStatusMain[index] = "unchecked";
+    // }
+    // res.redirect("/");
+
 });
 
 app.get("/about", (req, res) => {

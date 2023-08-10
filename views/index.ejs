@@ -22,6 +22,7 @@
                     <form action="/check" method="post">
                         <input onChange="this.form.submit()" type="checkbox" name="doThis" id="<%= item %>" value="<%= n %>" <%= checkStatus[n] %> >
                         <input type="hidden" name="toDoIndex" value="<%= n %>">
+                        <input type="hidden" name="toDoList" value="<%= listTitle %>">
                         <label for="<%= item %>">
                             <%= item %>
                         </label>
