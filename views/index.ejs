@@ -1,8 +1,11 @@
 <%- include("partials/header") %>
-
+    
+<div class="h1-container">        
     <h1>What would you like to do today?</h1>
+</div>
 
-    <div class="alignment-box">
+<div class="alignment-box">
+
 
         <div>
             <nav>
@@ -20,12 +23,12 @@
             <% toDoItems.forEach(item=> { %>
                 <div class="list-items">
                     <form action="/check" method="post">
-                        <input onChange="this.form.submit()" type="checkbox" name="doThis" id="<%= item %>" value="<%= n %>" <%= checkStatus[n] %> >
-                        <input type="hidden" name="toDoIndex" value="<%= n %>">
-                        <input type="hidden" name="toDoList" value="<%= listTitle %>">
+                        <input onChange="this.form.submit()" type="checkbox" name="doThis" id="<%= item %>" value="<%= item %>" <%= checkStatus[n] %> >
                         <label for="<%= item %>">
                             <%= item %>
                         </label>
+                        <input type="hidden" name="toDoIndex" value="<%= n %>">
+                        <input type="hidden" name="toDoList" value="<%= listTitle %>">
                     </form>
                     <hr>
                 </div>

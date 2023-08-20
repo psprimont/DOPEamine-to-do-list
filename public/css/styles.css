@@ -1,20 +1,153 @@
-html {
+body {
     background: radial-gradient(#dcb42dc1, #62a12fd3);
-    background-image: url("/images/tabletop.jpg");
+    /* background-image: url("/images/tabletop.jpg"); */
     background-size: cover;
+    position: relative;
+    bottom: 20px;
 }
 
-h1 {
+/* animated background */
+
+body::after {
+    content: "";
+    display: block;
+    height: inherit;
+    background: url("/images/wavybackground.jpg");
+    background-size:cover; 
+    background-repeat:no-repeat;
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    bottom: -40px;
+    left: -10px;
+    opacity: .49;
+
+    animation-name: MOVE-BG, GLITCH-BG;
+  animation-duration: 11s, 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-composition: add;
+}
+
+@keyframes MOVE-BG {
+    from {
+        background-position: left top; background-size: 130%;
+    }
+    to { 
+        background-position: right top; background-size: 130%;
+    }
+ }
+
+ @keyframes GLITCH-BG {
+    from {
+        background-position: left top; background-size: 130%;
+    }
+    to { 
+        background-position: left bottom; background-size: 130%;
+    }
+ }
+
+ body::before {
+    content: "";
+    display: block;
+    height: inherit;
+    background: url("/images/gradient.jpg");
+    background-size: auto; 
+    background-repeat:no-repeat;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -40px;
+    left: -20px;
+    opacity: .89;
+
+    animation-name: MOVE2-BG, GLITCH2-BG;
+  animation-duration: 90s, 20s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-composition: add;
+}
+
+@keyframes MOVE2-BG {
+    from {
+        background-position: left top; background-size: 200%;
+    }
+    to { 
+        background-position: right top; background-size: 200%;
+    }
+ }
+
+ @keyframes GLITCH2-BG {
+    from {
+        background-position: left top; background-size: 200%;
+    }
+    to { 
+        background-position: left bottom; background-size: 200%;
+    }
+ }
+
+/* 
+
+ body::after {
+    content: "";
+    display: block;
+    height: inherit;
+    background: url("/images/grainy-filter.jpg");
+    background-size:auto; 
+    background-repeat:round;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    opacity: .02;
+
+    animation-name: MOVE2-BG, GLITCH2-BG;
+  animation-duration: 10s, 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-composition: add;
+}
+
+@keyframes MOVE2-BG {
+    from {
+        background-position: center; background-size: 130%;
+    }
+    to { 
+        background-position: -100px 0px; background-size: 120%;
+    }
+ }
+
+ @keyframes GLITCH2-BG {
+    from {
+        background-position: -100px 0px; background-size: 120%;
+    }
+    to { 
+        background-position: center; background-size: 130%;
+    }
+ }
+
+ */
+
+/* element tags */
+ h1 {
     text-align: center;
     font-family: 'Lumanosimo', cursive;
     color: rgb(224, 252, 252);
     text-shadow: 1px 1px 10px rgb(220, 180, 0), .5px .5px 3px rgb(63, 52, 0);
-    font-size: 40px;
+    font-size: 5vw;
 }
 
 h2 {
     color: #57385cdf;
     text-shadow: .5px .5px 1px goldenrod;
+    font-size: 2rem;
 }
 
 a {
@@ -31,7 +164,7 @@ a {
     font-synthesis: weight;
     font-weight: 900;
     color: black;
-    position:relative;
+    position: relative;
     z-index: 2;
 }
 
@@ -52,7 +185,7 @@ input[type="text"]:focus {
     box-shadow: inset 0 0 1px 1px #7d2f4185;
 }
 
-input:checked+label {
+input[type="checkbox"]:checked+label {
     text-decoration: line-through 2px;
     text-decoration-color: #483d4a96;
     color: transparent;
@@ -71,7 +204,8 @@ button[type='submit'] {
 
 button[type="submit"]:hover {
     outline: none;
-    box-shadow: inset 0 0 1px 1px #57385c85;
+    box-shadow: 0 0 1px .25px rgb(5, 5, 5);
+    color: rgb(254, 245, 230);
 }
 
 footer {
@@ -87,7 +221,16 @@ input[type="text"] {
     font-weight: 200;
     margin-right: 10px;
     margin-bottom: 10px;
-  }
+}
+
+/* class tags */
+
+.h1-container {
+    display: block;
+    padding: 10px 10% 0 10%;
+    background-color: transparent;
+    position: relative;
+}
 
 .alignment-box {
     display: block;
@@ -110,7 +253,7 @@ input[type="text"] {
 }
 
 .tab-main {
-    background-color: blanchedalmond;
+    background-color: rgb(220, 230, 200);
 }
 
 .tab-work {
@@ -118,7 +261,7 @@ input[type="text"] {
 }
 
 .tab-chores {
-    background-color: rgb(220, 230, 200);
+    background-color: blanchedalmond;
 }
 
 .todays-date {
@@ -128,7 +271,7 @@ input[type="text"] {
 
 .list-main {
     justify-content: center;
-    background-color: blanchedalmond;
+    background-color: rgb(220, 230, 200);
     border: 6px #57385c;
     border-style: ridge groove;
     width: 70%;
@@ -163,7 +306,7 @@ input[type="text"] {
 }
 
 .list-chores {
-    background-color: rgb(220, 230, 200);
+    background-color: blanchedalmond;
     justify-content: center;
     border: 6px #57385c;
     border-style: ridge groove;
