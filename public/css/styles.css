@@ -210,7 +210,9 @@ button[type="submit"]:hover {
 footer {
     align-self: end;
     font-family: 'Space Grotesk', sans-serif;
-    text-shadow: .5px .5px 1px rgb(220, 180, 0), .25px .25px .5px rgb(63, 52, 0);
+    text-shadow: 1px 1px 2px rgb(220, 180, 0), .5px .5px 1px rgb(63, 52, 0), 2px 2px 5px rgb(255, 255, 255);
+    padding-left: 5%;
+    z-index: 3;
 }
 
 input[type="text"] {
